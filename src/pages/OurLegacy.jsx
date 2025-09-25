@@ -34,7 +34,8 @@ const OurLegacy = () => {
         'Built foundational client relationships',
         'Established quality-first culture'
       ],
-      milestone: '1998: First patented component design'
+      milestone: '1998: First patented component design',
+      description: 'Our humble beginnings marked the start of a revolution in automotive rubber technology. With just a small workshop and big dreams, we laid the foundation for what would become an industry-leading enterprise focused on precision, quality, and innovation.'
     },
     {
       id: 'growth',
@@ -48,7 +49,8 @@ const OurLegacy = () => {
         'Implemented quality management systems',
         'Developed advanced material formulations'
       ],
-      milestone: '2012: Awarded "Excellence in Manufacturing"'
+      milestone: '2012: Awarded "Excellence in Manufacturing"',
+      description: 'This decade of strategic expansion saw Uni-Tech Auto International transform from a regional supplier to a global partner. We invested heavily in advanced manufacturing capabilities while maintaining our commitment to exceptional quality that clients had come to depend on.'
     },
     {
       id: 'innovation',
@@ -62,7 +64,8 @@ const OurLegacy = () => {
         'AI-powered quality control systems',
         'Global R&D partnerships'
       ],
-      milestone: '2023: Carbon-neutral production achieved'
+      milestone: '2023: Carbon-neutral production achieved',
+      description: 'In our current era, we\'re pushing the boundaries of what\'s possible in automotive rubber technology. Through digital transformation, sustainable practices, and cutting-edge R&D, we\'re not just keeping pace with industry trends—we\'re setting them.'
     }
   ];
 
@@ -71,30 +74,34 @@ const OurLegacy = () => {
     {
       icon: Gem,
       title: "Craftsmanship Excellence",
-      description: "Every component is a masterpiece of precision engineering, crafted with attention to microscopic details.",
+      description: "Every component is a masterpiece of precision engineering, crafted with attention to microscopic details that exceed industry standards. Our artisans combine traditional techniques with modern technology to create products that stand the test of time.",
       color: "from-blue-500 to-cyan-500",
-      features: ["Micro-precision tolerances", "Hand-finished quality", "Artisan-level craftsmanship"]
+      features: ["Micro-precision tolerances", "Hand-finished quality", "Artisan-level craftsmanship"],
+      detailed: "We believe that true quality is found in the details invisible to the naked eye. Each component undergoes meticulous inspection and refinement, ensuring performance reliability that our clients can depend on year after year."
     },
     {
       icon: Telescope,
       title: "Visionary Innovation",
-      description: "We don't just follow trends – we create them through groundbreaking research and development.",
+      description: "We don't just follow trends – we create them through groundbreaking research and development that anticipates the future needs of the automotive industry.",
       color: "from-purple-500 to-pink-500",
-      features: ["Future-focused R&D", "Cutting-edge technology", "Industry-first solutions"]
+      features: ["Future-focused R&D", "Cutting-edge technology", "Industry-first solutions"],
+      detailed: "Our innovation lab operates five years ahead of current market demands, developing next-generation materials and manufacturing processes that will define the automotive industry of tomorrow."
     },
     {
       icon: Leaf,
       title: "Sustainable Legacy",
-      description: "Building a greener future through eco-conscious manufacturing and circular economy principles.",
+      description: "Building a greener future through eco-conscious manufacturing and circular economy principles that minimize environmental impact while maximizing efficiency.",
       color: "from-green-500 to-emerald-500",
-      features: ["Carbon-neutral operations", "Recyclable materials", "Zero-waste processes"]
+      features: ["Carbon-neutral operations", "Recyclable materials", "Zero-waste processes"],
+      detailed: "Sustainability isn't an afterthought—it's integrated into every aspect of our operations. From energy-efficient facilities to closed-loop manufacturing systems, we're committed to leaving a positive environmental legacy."
     },
     {
       icon: Crown,
       title: "Uncompromising Quality",
-      description: "Perfection isn't a goal – it's our standard. Every product exceeds international quality benchmarks.",
+      description: "Perfection isn't a goal – it's our standard. Every product exceeds international quality benchmarks through rigorous testing and continuous improvement processes.",
       color: "from-amber-500 to-orange-500",
-      features: ["6-sigma precision", "Multi-stage inspection", "Lifetime performance guarantee"]
+      features: ["6-sigma precision", "Multi-stage inspection", "Lifetime performance guarantee"],
+      detailed: "Our quality assurance process involves over 200 checkpoints, with each component tracked from raw material to finished product. This meticulous approach ensures consistent excellence that has become our trademark."
     }
   ];
 
@@ -111,26 +118,46 @@ const OurLegacy = () => {
     {
       icon: Zap,
       title: "Smart Manufacturing",
-      description: "AI-driven production lines with real-time quality monitoring",
-      stats: "40% efficiency gain"
+      description: "AI-driven production lines with real-time quality monitoring and predictive maintenance systems",
+      stats: "40% efficiency gain",
+      details: "Our fully integrated smart factory utilizes IoT sensors and machine learning algorithms to optimize production flow and minimize downtime."
     },
     {
       icon: Leaf,
       title: "Green Facility",
-      description: "Solar-powered operations with water recycling systems",
-      stats: "100% renewable energy"
+      description: "Solar-powered operations with water recycling systems and energy recovery technology",
+      stats: "100% renewable energy",
+      details: "The facility features a 500kW solar array, rainwater harvesting, and heat recovery systems that reduce our carbon footprint by 75% compared to conventional plants."
     },
     {
       icon: Brain,
       title: "R&D Center",
-      description: "Advanced materials research and prototype development lab",
-      stats: "15+ patents"
+      description: "Advanced materials research and prototype development lab with testing facilities",
+      stats: "15+ patents",
+      details: "Our research team collaborates with leading universities and automotive manufacturers to develop innovative rubber compounds and manufacturing techniques."
     },
     {
       icon: Shield,
       title: "Quality Assurance",
-      description: "ISO-certified testing laboratories with precision instruments",
-      stats: "0.01mm tolerance"
+      description: "ISO-certified testing laboratories with precision instruments and automated inspection",
+      stats: "0.01mm tolerance",
+      details: "Every batch undergoes rigorous testing for durability, temperature resistance, and performance under extreme conditions to ensure reliability."
+    }
+  ];
+
+  // Leadership team data
+  const leadershipTeam = [
+    {
+      name: "M.Yunus Siddiqui ",
+      role: "Founder & CEO",
+      experience: "30+ years in automotive manufacturing",
+      quote: "Quality is not an act, it is a habit that defines everything we do."
+    },
+    {
+      name: "Shafeen Siddiqui",
+      role: "Co-Owner",
+      experience: "PhD in Mechanical Engineering",
+      quote: "Innovation happens when we challenge the impossible and make it routine."
     }
   ];
 
@@ -174,11 +201,21 @@ const OurLegacy = () => {
                 </span>
               </h1>
 
-              <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
-                For 30 years, Uni-Tech Auto International has been at the forefront of automotive 
-                rubber technology, transforming industry standards through relentless innovation 
-                and uncompromising quality.
-              </p>
+              <div className="space-y-6">
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  For over 30 years, Uni-Tech Auto International has been at the forefront of automotive 
+                  rubber technology, transforming industry standards through relentless innovation 
+                  and uncompromising quality. What began as a small workshop with big dreams has evolved 
+                  into a global enterprise recognized for precision engineering and sustainable practices.
+                </p>
+                
+                <div className="bg-blue-50/50 rounded-2xl p-6 border border-blue-100">
+                  <p className="text-lg text-blue-800 font-medium italic">
+                    "Our journey reflects our commitment to excellence—each decade building upon the last 
+                    to deliver innovative solutions that drive the automotive industry forward."
+                  </p>
+                </div>
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
                 <motion.button
@@ -257,7 +294,8 @@ const OurLegacy = () => {
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
                 A journey of transformation from a visionary startup to a global innovation leader 
-                in automotive rubber technology.
+                in automotive rubber technology. Each era represents significant milestones that shaped 
+                our identity and capabilities in the automotive components industry.
               </p>
             </motion.div>
 
@@ -305,6 +343,13 @@ const OurLegacy = () => {
                             {companyEras.find(e => e.id === activeEra)?.period}
                         </p>
                         </div>
+                    </div>
+
+                    {/* Era Description Paragraph */}
+                    <div className="bg-white/50 rounded-2xl p-6 border border-gray-200/30">
+                      <p className="text-gray-700 leading-relaxed">
+                        {companyEras.find(e => e.id === activeEra)?.description}
+                      </p>
                     </div>
 
                 <div className="bg-gradient-to-br from-blue-50/50 to-cyan-50/30 rounded-3xl p-8 border border-blue-100/50">
@@ -388,6 +433,17 @@ const OurLegacy = () => {
                     ))}
                   </div>
                 </div>
+
+                {/* Additional Content Block */}
+                <div className="mt-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl p-6 text-white">
+                  <div className="flex items-center gap-4">
+                    <Target className="h-8 w-8" />
+                    <div>
+                      <h4 className="font-bold text-lg">Our Vision for 2030</h4>
+                      <p className="text-blue-100 text-sm">Expanding into electric vehicle components and sustainable mobility solutions</p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
@@ -408,7 +464,8 @@ const OurLegacy = () => {
                 </span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                The core principles that drive our innovation, shape our culture, and define our legacy.
+                The core principles that drive our innovation, shape our culture, and define our legacy. 
+                These values guide every decision we make and every product we create.
               </p>
             </motion.div>
 
@@ -442,6 +499,14 @@ const OurLegacy = () => {
                         <p className="text-gray-600 leading-relaxed mb-4">
                           {value.description}
                         </p>
+                        
+                        {/* Additional detailed paragraph */}
+                        <div className="bg-gray-50/50 rounded-xl p-4 mb-4">
+                          <p className="text-sm text-gray-600 leading-relaxed">
+                            {value.detailed}
+                          </p>
+                        </div>
+                        
                         <div className="space-y-2">
                           {value.features.map((feature, idx) => (
                             <div key={idx} className="flex items-center gap-2 text-sm text-gray-500">
@@ -452,6 +517,91 @@ const OurLegacy = () => {
                         </div>
                       </div>
                     </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Additional Content Block */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-16 bg-gradient-to-r from-gray-900 to-blue-900 rounded-3xl p-8 text-white"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-3xl font-bold mb-4">Living Our Values Daily</h3>
+                  <p className="text-blue-200 leading-relaxed">
+                    Our commitment to these principles extends beyond our products to our people, 
+                    processes, and partnerships. We measure success not just by financial metrics 
+                    but by how well we uphold these values in every aspect of our business.
+                  </p>
+                </div>
+                <div className="bg-white/10 rounded-2xl p-6">
+                  <h4 className="font-bold text-lg mb-3">Value in Action</h4>
+                  <ul className="space-y-2 text-blue-200">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-400" />
+                      Quarterly ethics and values training for all employees
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-400" />
+                      Sustainability metrics integrated into performance reviews
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-400" />
+                      Innovation awards program recognizing creative solutions
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Leadership Section */}
+        <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50/50 to-cyan-50/30">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                <span className="bg-gradient-to-r from-gray-900 via-blue-700 to-cyan-600 bg-clip-text text-transparent">
+                  Our Leadership
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Visionary leaders who have guided our company through three decades of growth and innovation, 
+                maintaining our commitment to excellence while embracing change.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {leadershipTeam.map((leader, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100"
+                >
+                  <div className="text-center mb-6">
+                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                      <Users className="h-10 w-10 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">{leader.name}</h3>
+                    <p className="text-blue-600 font-semibold">{leader.role}</p>
+                    <p className="text-sm text-gray-500 mt-2">{leader.experience}</p>
+                  </div>
+                  
+                  <div className="bg-gray-50/50 rounded-xl p-4">
+                    <Quote className="h-6 w-6 text-blue-500 mb-2" />
+                    <p className="text-gray-700 italic text-sm">"{leader.quote}"</p>
                   </div>
                 </motion.div>
               ))}
@@ -480,7 +630,9 @@ const OurLegacy = () => {
               </h2>
               <p className="text-xl text-blue-200 max-w-4xl mx-auto leading-relaxed">
                 Our 45,000 sq. ft. state-of-the-art facility combines cutting-edge technology 
-                with sustainable practices to deliver unparalleled quality.
+                with sustainable practices to deliver unparalleled quality. Designed for efficiency, 
+                innovation, and environmental responsibility, this facility represents the future 
+                of automotive component manufacturing.
               </p>
             </motion.div>
 
@@ -504,6 +656,17 @@ const OurLegacy = () => {
                   <div className="absolute top-6 left-6 bg-green-500 text-white px-4 py-2 rounded-full font-semibold text-sm">
                     Eco-Certified Facility
                   </div>
+                </div>
+
+                {/* Additional Info Card */}
+                <div className="mt-6 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+                  <h4 className="text-white font-bold text-lg mb-2">Facility Highlights</h4>
+                  <ul className="text-blue-200 space-y-2 text-sm">
+                    <li>• LEED Gold Certified building</li>
+                    <li>• 24/7 automated production capabilities</li>
+                    <li>• Advanced climate control systems</li>
+                    <li>• On-site research and development center</li>
+                  </ul>
                 </div>
               </motion.div>
 
@@ -529,7 +692,10 @@ const OurLegacy = () => {
                     <p className="text-blue-200 text-sm mb-3 leading-relaxed">
                       {feature.description}
                     </p>
-                    <div className="text-cyan-200 font-bold text-lg">{feature.stats}</div>
+                    <div className="text-cyan-200 font-bold text-lg mb-3">{feature.stats}</div>
+                    <p className="text-blue-300/80 text-xs leading-relaxed">
+                      {feature.details}
+                    </p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -563,7 +729,9 @@ const OurLegacy = () => {
               transition={{ delay: 0.1 }}
               className="text-xl text-gray-600 mb-8 leading-relaxed"
             >
-              Be part of the next chapter in automotive innovation. Let's create something extraordinary together.
+              For three decades, we've been pushing the boundaries of automotive rubber technology. 
+              As we look toward the future of mobility, we invite you to partner with us in creating 
+              innovative solutions that will shape the next generation of vehicles.
             </motion.p>
 
             <motion.div
@@ -578,24 +746,48 @@ const OurLegacy = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-2"
               >
-                <Rocket className="h-5 w-5" />
-                Start Collaboration
+                <Send className="h-5 w-5" />
+                Start Partnership
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-white/80 backdrop-blur-md text-gray-700 font-semibold rounded-2xl border-2 border-gray-200/50 hover:border-blue-300 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Schedule Tour
+                Download Capabilities Brochure
               </motion.button>
+            </motion.div>
+
+            {/* Additional Info */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8"
+            >
+              {[
+                { icon: Clock, label: "30+ Years", description: "Industry Experience" },
+                { icon: Shield, label: "ISO Certified", description: "Quality Standards" },
+                { icon: Globe, label: "Global Reach", description: "20+ Countries" }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ y: -5 }}
+                  className="bg-white/50 backdrop-blur-md rounded-2xl p-6 border border-gray-200/30"
+                >
+                  <item.icon className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+                  <div className="text-2xl font-bold text-gray-900">{item.label}</div>
+                  <div className="text-gray-600 text-sm">{item.description}</div>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </section>
       </main>
-      
+
       <Footer />
     </div>
-    
   );
 };
 
