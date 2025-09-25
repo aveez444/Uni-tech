@@ -96,17 +96,17 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
-                <p className="text-gray-300">Your Company Address Here, City, State, PIN Code</p>
+                <p className="text-gray-300">Industrial Estate, Yewalewadi Pune, 411048</p>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-400" />
                 <a href="tel:+911234567890" className="text-gray-300 hover:text-white transition-colors">
-                  +91 123 456 7890
+                 +91-932 690 9677
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-blue-400" />
-                <a href="mailto:info@unitechautoproducts.com" className="text-gray-300 hover:text-white transition-colors">
+                <a href="export.unitechinternational@gmail.com" className="text-gray-300 hover:text-white transition-colors">
                   info@unitechautoproducts.com
                 </a>
               </div>

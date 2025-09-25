@@ -1285,19 +1285,19 @@ const ContactSection = () => {
               {
                 icon: Phone,
                 title: "Call Us",
-                info: "+1 (555) 123-4567",
+                info: " +91-9326909677",
   
               },
               {
                 icon: Mail,
                 title: "Email Us",
-                info: "info@unitechauto.com",
+                info: "export.unitechinternational@gmail.com",
                 desc: "Send us your query anytime"
               },
               {
                 icon: MapPin,
                 title: "Visit Us",
-                info: "123 Industrial Park, Auto City",
+                info: "Industrial Estate, Yewalewadi ",
                 desc: "Pune, Maharashtra, India"
               },
               {
