@@ -1,7 +1,19 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, X, Menu } from 'lucide-react';
-import logo from '../assets/logo.jpg'; // Import the logo
+import { ChevronDown, X, Menu, ArrowRight } from 'lucide-react';
+import logo from '../assets/logo.jpg';
+
+// Import product images
+import oRingsImage from '../assets/o-rings.jpg';
+import oilSealsImage from '../assets/oil-seals.jpg';
+import rubberBellowsImage from '../assets/rubber-bellows.jpg';
+import moldedPartsImage from '../assets/molded-parts.jpg';
+import metalBondedImage from '../assets/metal-bonded.jpg';
+import rubberGasketsImage from '../assets/rubber-gaskets.jpg';
+import rubberProfileImage from '../assets/rubber-profile.jpg';
+import rubberRollersImage from '../assets/rubber-rollers.jpg';
+import automotivePartsImage from '../assets/automotive-parts.jpg';
+import siliconeRubberImage from '../assets/silicone-molded.jpg';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,25 +28,68 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navigation = {
-    company: [
-      { name: 'About Us', href: '/our-legacy' },
-      { name: 'Our Journey', href: '/journey' },
-      { name: 'Certifications', href: '/certifications' },
-      { name: 'Quality Assurance', href: '/quality' }
-    ],
-    products: [
-      { name: 'Automotive Rubber', href: '/products/automotive' },
-      { name: 'Industrial Rubber', href: '/products/industrial' },
-      { name: 'Custom Solutions', href: '/products/custom' },
-      { name: 'Technical Specifications', href: '/products/tech-specs' }
-    ],
-    gallery: [
-      { name: 'Product Gallery', href: '/gallery/products' },
-      { name: 'Manufacturing Process', href: '/gallery/process' },
-      { name: 'Facility Tour', href: '/gallery/facility' }
-    ]
-  };
+  const products = [
+    {
+      name: 'O-Rings',
+      href: '/products/o-rings',
+      image: oRingsImage,
+      description: 'Precision sealing solutions'
+    },
+    {
+      name: 'Oil Seals',
+      href: '/products/oil-seals',
+      image: oilSealsImage,
+      description: 'Advanced leak prevention'
+    },
+    {
+      name: 'Rubber Bellows',
+      href: '/products/rubber-bellows',
+      image: rubberBellowsImage,
+      description: 'Protective flexible covers'
+    },
+    {
+      name: 'Molded Parts',
+      href: '/products/molded-parts',
+      image: moldedPartsImage,
+      description: 'Custom molded components'
+    },
+    {
+      name: 'Metal Bonded',
+      href: '/products/metal-bonded',
+      image: metalBondedImage,
+      description: 'Rubber-to-metal bonding'
+    },
+    {
+      name: 'Rubber Gaskets',
+      href: '/products/rubber-gaskets',
+      image: rubberGasketsImage,
+      description: 'Perfect sealing surfaces'
+    },
+    {
+      name: 'Rubber Profile',
+      href: '/products/rubber-profile',
+      image: rubberProfileImage,
+      description: 'Extruded rubber profiles'
+    },
+    {
+      name: 'Rubber Rollers',
+      href: '/products/rubber-rollers',
+      image: rubberRollersImage,
+      description: 'Industrial roller solutions'
+    },
+    {
+      name: 'Automotive Parts',
+      href: '/products/automotive',
+      image: automotivePartsImage,
+      description: 'Vehicle components'
+    },
+    {
+      name: 'Silicone Rubber',
+      href: '/products/silicone-rubber',
+      image: siliconeRubberImage,
+      description: 'High-temperature solutions'
+    }
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -55,6 +110,24 @@ const Navbar = () => {
         type: "spring",
         stiffness: 300,
         damping: 24
+      }
+    }
+  };
+
+  const productCardVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { duration: 0.3 }
+    },
+    hover: {
+      scale: 1.02,
+      y: -5,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 10
       }
     }
   };
@@ -80,10 +153,9 @@ const Navbar = () => {
               className="flex-shrink-0"
             >
               <img
-                src={logo} // Use imported logo
+                src={logo}
                 alt="Unitech Auto Products"
-                className="h-12 w-auto rounded-lg rounded-none, rounded-sm, rounded-lg "
-                
+                className="h-12 w-auto rounded-lg"
               />
             </motion.div>
 
@@ -106,39 +178,18 @@ const Navbar = () => {
                   </a>
                 </motion.div>
 
-                {/* About Dropdown */}
-                <motion.div variants={itemVariants} className="relative">
-                  <button
-                    onMouseEnter={() => setActiveDropdown('company')}
-                    className="flex items-center text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300 group"
+                {/* Our Legacy (No Dropdown) */}
+                <motion.div variants={itemVariants}>
+                  <a
+                    href="/our-legacy"
+                    className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300 group"
                   >
-                    About Us
-                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
-                  </button>
-                  <AnimatePresence>
-                    {activeDropdown === 'company' && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        onMouseLeave={() => setActiveDropdown(null)}
-                        className="absolute left-0 mt-2 w-64 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
-                      >
-                        {navigation.company.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className="block px-6 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 border-b border-gray-100 last:border-b-0"
-                          >
-                            {item.name}
-                          </a>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                    Our Legacy
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                  </a>
                 </motion.div>
 
-                {/* Products Dropdown */}
+                {/* Products Dropdown - Tesla Inspired */}
                 <motion.div variants={itemVariants} className="relative">
                   <button
                     onMouseEnter={() => setActiveDropdown('products')}
@@ -150,21 +201,65 @@ const Navbar = () => {
                   <AnimatePresence>
                     {activeDropdown === 'products' && (
                       <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 20, scale: 0.95 }}
                         onMouseLeave={() => setActiveDropdown(null)}
-                        className="absolute left-0 mt-2 w-64 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
+                        className="absolute left-1/2 transform -translate-x-1/2 mt-6 w-[95vw] max-w-6xl bg-white/98 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-200/50 overflow-hidden"
                       >
-                        {navigation.products.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className="block px-6 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 border-b border-gray-100 last:border-b-0"
+                        <div className="p-8">
+                          <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
+                            {products.map((product, index) => (
+                              <motion.a
+                                key={product.name}
+                                href={product.href}
+                                variants={productCardVariants}
+                                initial="hidden"
+                                animate="visible"
+                                whileHover="hover"
+                                custom={index}
+                                className="group block bg-gradient-to-br from-white to-gray-50 rounded-2xl p-4 border border-gray-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300"
+                              >
+                                <div className="relative overflow-hidden rounded-xl mb-4 h-32 bg-gradient-to-br from-gray-100 to-gray-200">
+                                  <img
+                                    src={product.image}
+                                    alt={product.name}
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                  />
+                                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                </div>
+                                
+                                <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                                  {product.name}
+                                </h3>
+                                <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                                  {product.description}
+                                </p>
+                                
+                                <div className="flex items-center text-blue-600 text-sm font-medium">
+                                  Explore
+                                  <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                                </div>
+                              </motion.a>
+                            ))}
+                          </div>
+                          
+                          {/* View All Products */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="mt-8 text-center"
                           >
-                            {item.name}
-                          </a>
-                        ))}
+                            <a
+                              href="/products"
+                              className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 transform hover:scale-105"
+                            >
+                              View All Products
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </a>
+                          </motion.div>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -227,22 +322,28 @@ const Navbar = () => {
               <div className="px-4 pt-2 pb-6 space-y-2">
                 <a href="/" className="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg transition-colors">Home</a>
                 
-                <div className="space-y-1">
-                  <div className="py-3 px-4 text-gray-700 font-medium">About Us</div>
-                  {navigation.company.map((item) => (
-                    <a key={item.name} href={item.href} className="block py-2 px-6 text-gray-600 hover:bg-blue-50 rounded-lg transition-colors">
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
+                <a href="/our-legacy" className="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg transition-colors">Our Legacy</a>
 
                 <div className="space-y-1">
                   <div className="py-3 px-4 text-gray-700 font-medium">Products</div>
-                  {navigation.products.map((item) => (
-                    <a key={item.name} href={item.href} className="block py-2 px-6 text-gray-600 hover:bg-blue-50 rounded-lg transition-colors">
-                      {item.name}
-                    </a>
-                  ))}
+                  <div className="grid grid-cols-2 gap-3 px-4">
+                    {products.map((product) => (
+                      <a 
+                        key={product.name} 
+                        href={product.href} 
+                        className="block p-3 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors group"
+                      >
+                        <div className="aspect-square mb-2 bg-gray-200 rounded-lg overflow-hidden">
+                          <img 
+                            src={product.image} 
+                            alt={product.name}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                        <span className="text-sm font-medium text-gray-700">{product.name}</span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
 
                 <a href="/gallery" className="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg transition-colors">Gallery</a>
