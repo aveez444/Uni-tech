@@ -1285,7 +1285,7 @@ const ContactSection = () => {
               {
                 icon: Phone,
                 title: "Call Us",
-                info: " +91-9326909677",
+                info: " +91-932 690 9677",
   
               },
               {
