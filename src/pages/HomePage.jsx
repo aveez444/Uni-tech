@@ -1534,7 +1534,7 @@ const ContactSection = () => {
               <span className="block bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent drop-shadow-2xl">
                 Uni-Tech Auto
               </span>
-              <span className="block bg-gradient-to-r from-blue-600 to-gray-500 bg-clip-text text-transparent drop-shadow-2xl">
+              <span className="block bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent drop-shadow-2xl">
                 International
               </span>
             </motion.h1>
