@@ -8,6 +8,11 @@ import {
   Thermometer, Droplets, Shield as ShieldIcon, Zap as ZapIcon, Layers, Package, Square, Car,
   Sun, Fuel, Atom, Leaf 
 } from 'lucide-react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+
 
 // Import your images
 import heroImage1 from '../assets/hero-1.jpg';
@@ -1103,49 +1108,48 @@ const ProductDetailModal = ({ product, onClose }) => {
 
         {/* Modal Content */}
         <div className="p-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Image Section */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="relative"
-            >
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-80 object-cover rounded-2xl shadow-lg"
-              />
-            </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Image Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="relative order-1 lg:order-1"
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-56 sm:h-72 lg:h-80 object-cover rounded-2xl shadow-lg"
+            />
+          </motion.div>
 
-            {/* Details Section */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="space-y-6"
-            >
-              {/* Description */}
-              <div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2">Description</h4>
-                <p className="text-gray-700 leading-relaxed">{product.details.description}</p>
+          {/* Details Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+            className="space-y-6 order-2 lg:order-2"
+          >
+            {/* Description */}
+            <div>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">Description</h4>
+              <p className="text-gray-700 leading-relaxed">{product.details.description}</p>
+            </div>
+
+            {/* Specifications */}
+            <div>
+              <h4 className="text-lg font-bold text-gray-900 mb-3">Specifications</h4>
+              <div className="space-y-2">
+                {product.details.specifications.map((spec, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                    <span className="text-gray-700 text-sm">{spec}</span>
+                  </div>
+                ))}
               </div>
-
-              {/* Specifications */}
-              <div>
-                <h4 className="text-lg font-bold text-gray-900 mb-3">Specifications</h4>
-                <div className="space-y-2">
-                  {product.details.specifications.map((spec, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700 text-sm">{spec}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
+            </div>
+          </motion.div>
+        </div>
           {/* Applications & Benefits */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
             <motion.div
@@ -1441,173 +1445,168 @@ const ContactSection = () => {
 };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white overflow-hidden">
       <Navbar />
-      
       <main>
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Background Image Collage */}
-          <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-4 p-4">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative rounded-2xl overflow-hidden"
-            >
-              <img
-                src={heroImage1}
-                alt="Precision Rubber Products"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/30"></div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative rounded-2xl overflow-hidden"
-            >
-              <img
-                src={heroImage2}
-                alt="Manufacturing Excellence"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/30"></div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="relative rounded-2xl overflow-hidden"
-            >
-              <img
-                src={heroImage3}
-                alt="Quality Assurance"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/30"></div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="relative rounded-2xl overflow-hidden"
-            >
-              <img
-                src={heroImage4}
-                alt="Global Reach"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/30"></div>
-            </motion.div>
+{/* Hero Section */}
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  {/* Mobile: Carousel */}
+  <div className="absolute inset-0 sm:hidden">
+    <Swiper
+      modules={[Autoplay, Pagination]}
+      spaceBetween={10}
+      slidesPerView={1}
+      loop={true}
+      autoplay={{ delay: 3000, disableOnInteraction: false }}
+      pagination={{ clickable: true }}
+      className="h-full w-full"
+    >
+      {[heroImage1, heroImage2, heroImage3, heroImage4].map((img, idx) => (
+        <SwiperSlide key={idx}>
+          <div className="relative h-full w-full">
+            <img
+              src={img}
+              alt={`Hero ${idx + 1}`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40"></div>
           </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
 
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 to-black/80"></div>
+  {/* Desktop: Collage with animation */}
+  <div className="absolute inset-0 hidden sm:grid grid-cols-2 grid-rows-2 gap-4 p-4">
+    {[
+      { img: heroImage1, anim: { x: -50 } },
+      { img: heroImage2, anim: { y: -50 } },
+      { img: heroImage3, anim: { y: 50 } },
+      { img: heroImage4, anim: { x: 50 } },
+    ].map((item, idx) => (
+      <motion.div
+        key={idx}
+        initial={{ opacity: 0, ...item.anim }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 + idx * 0.2 }}
+        className="relative rounded-2xl overflow-hidden"
+      >
+        <img
+          src={item.img}
+          alt={`Hero ${idx + 1}`}
+          className="w-full h-full object-cover transition-transform duration-[4000ms] ease-in-out hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-black/30"></div>
+      </motion.div>
+    ))}
+  </div>
 
-          {/* Content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
-          >
-            <motion.div variants={itemVariants} className="mb-8">
-              <motion.span
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.5, type: "spring" }}
-                className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-4 border border-white/30 text-white shadow-lg"
-              >
-                ISO 9001:2015 Certified Excellence
-              </motion.span>
-            </motion.div>
+  {/* Dark Overlay (covers both mobile & desktop) */}
+  <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 to-black/80 z-10"></div>
 
-            <motion.h1
-              variants={itemVariants}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
-            >
-              <span className="block bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent drop-shadow-2xl">
-                Uni-Tech Auto
-              </span>
-              <span className="block bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent drop-shadow-2xl">
-                International
-              </span>
-            </motion.h1>
+  {/* Content */}
+  <motion.div
+    variants={containerVariants}
+    initial="hidden"
+    animate="visible"
+    className="relative z-20 text-center text-white px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
+  >
+    <motion.div variants={itemVariants} className="mb-8">
+      <motion.span
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 0.5, type: "spring" }}
+        className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-4 border border-white/30 text-white shadow-lg"
+      >
+        ISO 9001:2015 Certified Excellence
+      </motion.span>
+    </motion.div>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-xl md:text-2xl text-white max-w-4xl mx-auto mb-8 leading-relaxed font-medium drop-shadow-lg"
-            >
-              Precision-engineered rubber solutions driving automotive excellence since 1995. 
-              Where innovation meets reliability in every component we create.
-            </motion.p>
+    <motion.h1
+      variants={itemVariants}
+      className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+    >
+      <span className="block bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent drop-shadow-2xl">
+        Uni-Tech 
+      </span>
+      <span className="block bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent drop-shadow-2xl">
+        International
+      </span>
+    </motion.h1>
 
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition-all duration-300 shadow-2xl shadow-blue-600/30 border-2 border-blue-500"
-              >
-                Explore Our Products
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold rounded-full transition-all duration-300 border-2 border-white/40 shadow-lg"
-              >
-                Request Quote
-              </motion.button>
-            </motion.div>
+    <motion.p
+      variants={itemVariants}
+      className="text-xl md:text-2xl text-white max-w-4xl mx-auto mb-8 leading-relaxed font-medium drop-shadow-lg"
+    >
+      Precision-engineered rubber solutions driving automotive excellence since 1995. 
+      Where innovation meets reliability in every component we create.
+    </motion.p>
 
-            {/* Features Grid */}
-            <motion.div
-              variants={containerVariants}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
-            >
-              {[
-                { icon: Factory, text: "Advanced Manufacturing" },
-                { icon: Shield, text: "Quality Certified" },
-                { icon: Zap, text: "Innovation Driven" },
-                { icon: Globe, text: "Global Standards" }
-              ].map((feature, index) => (
-                <motion.div
-                  key={index}
-                  variants={featureVariants}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white/15 backdrop-blur-md rounded-2xl p-4 border border-white/25 shadow-lg"
-                >
-                  <feature.icon className="h-8 w-8 mx-auto mb-2 text-white" />
-                  <p className="text-sm font-semibold text-white drop-shadow-md">{feature.text}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+    <motion.div
+      variants={itemVariants}
+      className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+    >
+      <motion.button
+        whileHover={{ scale: 1.05, y: -2 }}
+        whileTap={{ scale: 0.95 }}
+        className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition-all duration-300 shadow-2xl shadow-blue-600/30 border-2 border-blue-500"
+      >
+        Explore Our Products
+      </motion.button>
+      <motion.button
+        whileHover={{ scale: 1.05, y: -2 }}
+        whileTap={{ scale: 0.95 }}
+        className="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold rounded-full transition-all duration-300 border-2 border-white/40 shadow-lg"
+      >
+        Request Quote
+      </motion.button>
+    </motion.div>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.button
-              onClick={scrollToNext}
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="text-white/90 hover:text-white transition-colors backdrop-blur-sm bg-white/10 rounded-full p-2 border border-white/20"
-            >
-              <ChevronDown className="h-8 w-8" />
-            </motion.button>
-          </motion.div>
-        </section>
+    {/* Features Grid */}
+    <motion.div
+      variants={containerVariants}
+      className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+    >
+      {[
+        { icon: Factory, text: "Advanced Manufacturing" },
+        { icon: Shield, text: "Quality Certified" },
+        { icon: Zap, text: "Innovation Driven" },
+        { icon: Globe, text: "Global Standards" }
+      ].map((feature, index) => (
+        <motion.div
+          key={index}
+          variants={featureVariants}
+          whileHover={{ scale: 1.05, y: -5 }}
+          className="bg-white/15 backdrop-blur-md rounded-2xl p-4 border border-white/25 shadow-lg"
+        >
+          <feature.icon className="h-8 w-8 mx-auto mb-2 text-white" />
+          <p className="text-sm font-semibold text-white drop-shadow-md">
+            {feature.text}
+          </p>
+        </motion.div>
+      ))}
+    </motion.div>
+  </motion.div>
+
+  {/* Scroll Indicator */}
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 2 }}
+    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+  >
+    <motion.button
+      onClick={scrollToNext}
+      animate={{ y: [0, 10, 0] }}
+      transition={{ duration: 2, repeat: Infinity }}
+      className="text-white/90 hover:text-white transition-colors backdrop-blur-sm bg-white/10 rounded-full p-2 border border-white/20"
+    >
+      <ChevronDown className="h-8 w-8" />
+    </motion.button>
+  </motion.div>
+</section>
+
+
         
         {/* About Us Section */}
         <section className="relative min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -1730,11 +1729,11 @@ const ContactSection = () => {
               <motion.div
                 className="relative rounded-3xl overflow-hidden shadow-2xl"
               >
-                <img
-                  src={aboutImage}
-                  alt="Uni-Tech Auto International Manufacturing Facility"
-                  className="w-full h-[600px] object-cover"
-                />
+          <img
+  src={aboutImage}
+  alt="Uni-Tech Auto International Manufacturing Facility"
+  className="w-full h-64 object-cover rounded-2xl sm:h-[400px] lg:h-[600px]"
+/>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 {/* Experience Badge */}
                 <motion.div

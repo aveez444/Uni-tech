@@ -103,89 +103,89 @@ const ContactUs = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50/30 to-gray-100/50">
-      <Navbar />
-      
-      <main className="relative overflow-hidden">
-        {/* Enhanced Hero Section */}
-        <section className="relative min-h-[80vh] flex items-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-900/6-80 to-gray-900/90 z-10"></div>
-          
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${contactHero})` }}
-          ></div>
-          
-          {/* Animated Background Elements */}
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          
-          <div className="relative z-20 max-w-7xl mx-auto w-full text-center text-white">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50/30 to-gray-100/50 overflow-hidden">
+    <Navbar />
+    
+    <main className="relative overflow-hidden">
+      {/* Enhanced Hero Section */}
+      <section className="relative min-h-[80vh] flex items-center pt-20 md:pt-0 py-16 md:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-900/60 to-gray-900/90 z-10"></div>
+        
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${contactHero})` }}
+        ></div>
+        
+        {/* Animated Background Elements - Smaller on mobile */}
+        <div className="absolute top-10 left-4 w-48 h-48 md:top-20 md:left-10 md:w-72 md:h-72 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-4 w-64 h-64 md:bottom-20 md:right-10 md:w-96 md:h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        
+        <div className="relative z-20 max-w-7xl mx-auto w-full text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6 md:space-y-8"
+          >
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-white/20 backdrop-blur-md text-white rounded-xl md:rounded-2xl text-xs md:text-sm font-semibold border border-white/30 shadow-lg"
             >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-3 px-6 py-3 bg-white/20 backdrop-blur-md text-white rounded-2xl text-sm font-semibold border border-white/30 shadow-lg"
-              >
-                <Sparkles className="h-5 w-5" />
-                <span>Get in Touch • Start a Partnership</span>
-              </motion.div>
-
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"> 
-                <span className="block bg-gradient-to-r from-white to-white bg-clip-text text-transparent">
-                  Let's Build
-                </span>
-                <span className="block bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent"> 
-                  Together 
-                </span> 
-              </h1>
-
-              <div className="space-y-6 max-w-3xl mx-auto">
-                <p className="text-xl text-blue-100 leading-relaxed">
-                  Ready to discuss your automotive rubber component needs? Our team of experts is here 
-                  to provide personalized solutions and technical support. Reach out today and discover 
-                  the Uni-Tech difference.
-                </p>
-                
-                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                  <p className="text-lg text-white font-medium">
-                    "Partnerships built on trust, quality, and innovation since 1995"
-                  </p>
-                </div>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center pt-6"
-              >
-                <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-2"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  Start Conversation
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white/20 backdrop-blur-md text-white font-semibold rounded-2xl border-2 border-white/30 hover:border-cyan-300 transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  Request Quote
-                </motion.button>
-              </motion.div>
+              <Sparkles className="h-4 w-4 md:h-5 md:w-5" />
+              <span>Get in Touch • Start a Partnership</span>
             </motion.div>
-          </div>
-        </section>
+  
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight"> 
+              <span className="block bg-gradient-to-r from-white to-white bg-clip-text text-transparent">
+                Let's Build
+              </span>
+              <span className="block bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent"> 
+                Together 
+              </span> 
+            </h1>
+  
+            <div className="space-y-4 md:space-y-6 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
+                Ready to discuss your automotive rubber component needs? Our team of experts is here 
+                to provide personalized solutions and technical support. Reach out today and discover 
+                the Uni-Tech difference.
+              </p>
+              
+              <div className="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/20">
+                <p className="text-base md:text-lg text-white font-medium">
+                  "Partnerships built on trust, quality, and innovation since 1995"
+                </p>
+              </div>
+            </div>
+  
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center pt-4 md:pt-6"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-2 justify-center text-sm md:text-base"
+              >
+                <MessageCircle className="h-4 w-4 md:h-5 md:w-5" />
+                Start Conversation
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 md:px-8 md:py-4 bg-white/20 backdrop-blur-md text-white font-semibold rounded-xl md:rounded-2xl border-2 border-white/30 hover:border-cyan-300 transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base"
+              >
+                Request Quote
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
         {/* Contact Information Cards */}
         <section className="relative py-16 px-4 sm:px-6 lg:px-8">

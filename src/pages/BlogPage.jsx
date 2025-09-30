@@ -262,7 +262,7 @@ Looking ahead, we're focused on:
   const featuredArticles = articles.filter(article => article.featured);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black overflow-hidden">
       <Navbar />
       
       <main className="relative overflow-hidden">

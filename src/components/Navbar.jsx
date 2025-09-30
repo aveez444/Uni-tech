@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -9,7 +9,8 @@ import {
   Users,
   BookOpen,
   Phone,
-  Package
+  Package,
+  Globe
 } from 'lucide-react';
 
 import logo from '../assets/logo.jpg';
@@ -106,13 +107,23 @@ const Navbar = () => {
     }
   ];
 
-  // Main navigation items
+  // Main navigation items - OPTION 1: Products after Exports
   const navItems = [
     { name: "Home", path: "/", icon: Home },
     { name: "Our Legacy", path: "/our-legacy", icon: Users },
+    { name: "Exports & Solutions", path: "/exports", icon: Globe, shortName: "Exports" },
     { name: "Blogs", path: "/blogs", icon: BookOpen },
     { name: "Contact", path: "/contact", icon: Phone }
   ];
+
+  // OPTION 2: If you want Products after Our Legacy instead, use this:
+  // const navItems = [
+  //   { name: "Home", path: "/", icon: Home },
+  //   { name: "Our Legacy", path: "/our-legacy", icon: Users },
+  //   { name: "Blogs", path: "/blogs", icon: BookOpen },
+  //   { name: "Exports", path: "/exports", icon: Globe, shortName: "Exports" },
+  //   { name: "Contact", path: "/contact", icon: Phone }
+  // ];
 
   // Check if current path matches
   const isActive = (path) => {
@@ -192,116 +203,172 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
-          {/* Logo */}
+          {/* Logo - Made smaller for better fit */}
           <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex-shrink-0"
-            >
-              <img
-                src={logo}
-                alt="Unitech Auto International"
-                className="h-12 w-auto rounded-lg"
-              />
-            </motion.div>
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex-shrink-0"
+          >
+            <img
+              src={logo}
+              alt="Unitech Auto International"
+              className="h-8 w-auto rounded-lg lg:h-10"
+            />
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <motion.div
-                key={item.name}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  to={item.path}
-                  className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 ${
-                    isActive(item.path)
-                      ? 'bg-blue-600 text-white shadow-lg'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
-                  }`}
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.name}
-                </Link>
-              </motion.div>
-            ))}
-
-            {/* Products Dropdown */}
-            <div className="relative">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setIsProductsOpen(!isProductsOpen)}
-                className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 ${
-                  location.pathname.includes('/products')
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
-                }`}
-              >
-                <Package className="h-4 w-4" />
-                Products
-                <motion.div
-                  animate={{ rotate: isProductsOpen ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <ChevronDown className="h-4 w-4" />
-                </motion.div>
-              </motion.button>
-
-              <AnimatePresence>
-                {isProductsOpen && (
+            {navItems.map((item, index) => {
+              // Render Home, Our Legacy first
+              if (index < 2) {
+                return (
                   <motion.div
-                    variants={dropdownVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    className="absolute top-full left-0 mt-2 w-96 bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-gray-200/50 overflow-hidden"
+                    key={item.name}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <div className="p-2">
-                      <div className="p-4 border-b border-gray-100">
-                        <h3 className="font-semibold text-gray-900 mb-1">Our Products</h3>
-                        <p className="text-sm text-gray-600">Precision-engineered rubber solutions</p>
-                      </div>
-                      
-                      <div className="max-h-80 overflow-y-auto p-2 space-y-1">
-                        {products.map((product, index) => (
+                    <Link
+                      to={item.path}
+                      className={`px-3 py-2 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 text-sm ${
+                        isActive(item.path)
+                          ? 'bg-blue-600 text-white shadow-lg'
+                          : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                      }`}
+                    >
+                      <item.icon className="h-4 w-4 flex-shrink-0" />
+                      <span className="truncate">{item.name}</span>
+                    </Link>
+                  </motion.div>
+                );
+              }
+              
+              // After Our Legacy, insert Products dropdown
+              if (index === 2) {
+                return (
+                  <React.Fragment key="products-fragment">
+                    {/* Products Dropdown - Positioned after Our Legacy */}
+                    <div className="relative">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setIsProductsOpen(!isProductsOpen)}
+                        className={`px-3 py-2 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 text-sm ${
+                          location.pathname.includes('/products')
+                            ? 'bg-blue-600 text-white shadow-lg'
+                            : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                        }`}
+                      >
+                        <Package className="h-4 w-4" />
+                        Products
+                        <motion.div
+                          animate={{ rotate: isProductsOpen ? 180 : 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ChevronDown className="h-4 w-4" />
+                        </motion.div>
+                      </motion.button>
+
+                      <AnimatePresence>
+                        {isProductsOpen && (
                           <motion.div
-                            key={product.path}
-                            custom={index}
-                            variants={itemVariants}
+                            variants={dropdownVariants}
                             initial="hidden"
                             animate="visible"
+                            exit="exit"
+                            className="absolute top-full left-0 mt-2 w-96 bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-gray-200/50 overflow-hidden"
                           >
-                            <Link
-                              to={product.path}
-                              className="flex items-center gap-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 transition-all duration-300 group"
-                              onClick={() => setIsProductsOpen(false)}
-                            >
-                              <div className="flex-shrink-0">
-                                <img
-                                  src={product.image}
-                                  alt={product.name}
-                                  className="h-10 w-10 object-cover rounded-lg shadow-sm group-hover:shadow-md transition-shadow"
-                                />
+                            <div className="p-2">
+                              <div className="p-4 border-b border-gray-100">
+                                <h3 className="font-semibold text-gray-900 mb-1">Our Products</h3>
+                                <p className="text-sm text-gray-600">Precision-engineered rubber solutions</p>
                               </div>
-                              <div className="flex-1 min-w-0">
-                                <div className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors text-sm">
-                                  {product.name}
-                                </div>
-                                <div className="text-xs text-gray-600">
-                                  {product.description}
-                                </div>
+                              
+                              {/* Fixed height with proper scrolling */}
+                              <div className="max-h-80 overflow-y-auto p-2 space-y-1 custom-scrollbar">
+                                {products.map((product, index) => (
+                                  <motion.div
+                                    key={product.path}
+                                    custom={index}
+                                    variants={itemVariants}
+                                    initial="hidden"
+                                    animate="visible"
+                                  >
+                                    <Link
+                                      to={product.path}
+                                      className="flex items-center gap-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 transition-all duration-300 group"
+                                      onClick={() => setIsProductsOpen(false)}
+                                    >
+                                      <div className="flex-shrink-0">
+                                        <img
+                                          src={product.image}
+                                          alt={product.name}
+                                          className="h-10 w-10 object-cover rounded-lg shadow-sm group-hover:shadow-md transition-shadow"
+                                        />
+                                      </div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors text-sm">
+                                          {product.name}
+                                        </div>
+                                        <div className="text-xs text-gray-600">
+                                          {product.description}
+                                        </div>
+                                      </div>
+                                    </Link>
+                                  </motion.div>
+                                ))}
                               </div>
-                            </Link>
+                            </div>
                           </motion.div>
-                        ))}
-                      </div>
+                        )}
+                      </AnimatePresence>
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+
+                    {/* Then continue with the rest of navigation items */}
+                    <motion.div
+                      key={item.name}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link
+                        to={item.path}
+                        className={`px-3 py-2 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 text-sm ${
+                          isActive(item.path)
+                            ? 'bg-blue-600 text-white shadow-lg'
+                            : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                        } ${item.name === "Exports" ? 'min-w-0 max-w-32 truncate' : ''}`}
+                        title={item.name === "Exports" ? "Exports & Solutions" : item.name}
+                      >
+                        <item.icon className="h-4 w-4 flex-shrink-0" />
+                        <span className="truncate">
+                          {item.name === "Exports" ? "Exports" : item.name}
+                        </span>
+                      </Link>
+                    </motion.div>
+                  </React.Fragment>
+                );
+              }
+
+              // Render remaining items (Blogs, Contact)
+              return (
+                <motion.div
+                  key={item.name}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    to={item.path}
+                    className={`px-3 py-2 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 text-sm ${
+                      isActive(item.path)
+                        ? 'bg-blue-600 text-white shadow-lg'
+                        : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                    }`}
+                  >
+                    <item.icon className="h-4 w-4 flex-shrink-0" />
+                    <span className="truncate">{item.name}</span>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button */}
@@ -350,8 +417,8 @@ const Navbar = () => {
               className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-lg rounded-2xl mx-4 mb-4 shadow-xl border border-gray-200/50"
             >
               <div className="p-4 space-y-2">
-                {/* Navigation Items */}
-                {navItems.map((item, index) => (
+                {/* Navigation Items - Mobile follows the same order */}
+                {navItems.slice(0, 2).map((item, index) => (
                   <motion.div
                     key={item.name}
                     custom={index}
@@ -368,15 +435,15 @@ const Navbar = () => {
                       }`}
                       onClick={() => setIsOpen(false)}
                     >
-                      <item.icon className="h-5 w-5" />
-                      <span className="font-medium">{item.name}</span>
+                      <item.icon className="h-5 w-5 flex-shrink-0" />
+                      <span className="font-medium truncate">{item.name}</span>
                     </Link>
                   </motion.div>
                 ))}
 
-                {/* Products Section */}
+                {/* Products Section - Positioned after Our Legacy in mobile too */}
                 <motion.div
-                  custom={navItems.length}
+                  custom={2}
                   variants={itemVariants}
                   initial="hidden"
                   animate="visible"
@@ -402,7 +469,33 @@ const Navbar = () => {
                   </button>
                 </motion.div>
 
-                {/* Products Dropdown */}
+                {/* Rest of navigation items */}
+                {navItems.slice(2).map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    custom={index + 3}
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    <Link
+                      to={item.path}
+                      className={`flex items-center gap-3 p-3 rounded-xl transition-all duration-300 ${
+                        isActive(item.path)
+                          ? 'bg-blue-600 text-white shadow-lg'
+                          : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <item.icon className="h-5 w-5 flex-shrink-0" />
+                      <span className="font-medium truncate">
+                        {item.name === "Exports" ? "Exports & Solutions" : item.name}
+                      </span>
+                    </Link>
+                  </motion.div>
+                ))}
+
+                {/* Products Dropdown - Fixed scrolling */}
                 <AnimatePresence>
                   {isProductsOpen && (
                     <motion.div
@@ -412,40 +505,42 @@ const Navbar = () => {
                       transition={{ duration: 0.3 }}
                       className="ml-4 space-y-1 overflow-hidden"
                     >
-                      {products.map((product, index) => (
-                        <motion.div
-                          key={product.path}
-                          custom={index}
-                          variants={itemVariants}
-                          initial="hidden"
-                          animate="visible"
-                        >
-                          <Link
-                            to={product.path}
-                            className="flex items-center gap-3 p-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 transition-all duration-300 group"
-                            onClick={() => {
-                              setIsOpen(false);
-                              setIsProductsOpen(false);
-                            }}
+                      <div className="max-h-60 overflow-y-auto space-y-1 pr-2 custom-scrollbar">
+                        {products.map((product, index) => (
+                          <motion.div
+                            key={product.path}
+                            custom={index}
+                            variants={itemVariants}
+                            initial="hidden"
+                            animate="visible"
                           >
-                            <div className="flex-shrink-0">
-                              <img
-                                src={product.image}
-                                alt={product.name}
-                                className="h-8 w-8 object-cover rounded-md shadow-sm"
-                              />
-                            </div>
-                            <div>
-                              <div className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
-                                {product.name}
+                            <Link
+                              to={product.path}
+                              className="flex items-center gap-3 p-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 transition-all duration-300 group"
+                              onClick={() => {
+                                setIsOpen(false);
+                                setIsProductsOpen(false);
+                              }}
+                            >
+                              <div className="flex-shrink-0">
+                                <img
+                                  src={product.image}
+                                  alt={product.name}
+                                  className="h-8 w-8 object-cover rounded-md shadow-sm"
+                                />
                               </div>
-                              <div className="text-xs text-gray-600">
-                                {product.description}
+                              <div className="min-w-0 flex-1">
+                                <div className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors truncate">
+                                  {product.name}
+                                </div>
+                                <div className="text-xs text-gray-600 truncate">
+                                  {product.description}
+                                </div>
                               </div>
-                            </div>
-                          </Link>
-                        </motion.div>
-                      ))}
+                            </Link>
+                          </motion.div>
+                        ))}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -454,6 +549,24 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Custom scrollbar styles */}
+      <style jsx>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: #f1f5f9;
+          border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #cbd5e1;
+          border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #94a3b8;
+        }
+      `}</style>
     </motion.nav>
   );
 };

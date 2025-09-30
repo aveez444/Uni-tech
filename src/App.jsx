@@ -12,6 +12,8 @@ import ProductRubberProfile from './products/ProductRubberProfile';
 import ProductConveyorRollers from './products/ProductConveyorRollers';
 import ProductAutomotiveMoldedRubberParts from './products/ProductAutomotiveMoldedRubberParts';
 import ProductFlangeGaskets from './products/ProductFlangeGaskets';
+import ExportsSolutions from './pages/ExportsSolutions';
+import WhatsAppButton from './components/Whatsappbutton';
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
           <Route path="our-legacy" element={<OurLegacy />} />
           <Route path="blogs" element={<BlogPage />} />
           <Route path="contact" element={<ContactUs />} />
+          <Route path="exports" element={<ExportsSolutions />} />
 
           {/* Products */}
           <Route path="/products/o-rings" element={<ProductORing />} />
@@ -36,6 +39,7 @@ function App() {
           <Route path="/products/rubber-flange-gasket" element={<ProductFlangeGaskets />} />
 
         </Routes>
+        <WhatsAppButton/>
       </div>
     </Router>
   );

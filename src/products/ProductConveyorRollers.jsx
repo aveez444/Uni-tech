@@ -256,151 +256,151 @@ const ProductConveyorRollers = () => {
 
       <main>
         {/* Product Hero Section */}
-        <section className="relative py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-            >
-              {/* Image Gallery */}
-              <motion.div variants={itemVariants} className="space-y-4">
-                <motion.div
-                  variants={imageVariants}
-                  className="relative rounded-3xl overflow-hidden shadow-2xl bg-white p-4"
-                >
-                  <img
-                    src={product.images[selectedImage]}
-                    alt={product.name}
-                    className="w-full h-96 object-cover rounded-2xl"
-                  />
-                  <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
-                    {selectedImage + 1}/{product.images.length}
-                  </div>
-                </motion.div>
-                
-                <div className="flex gap-4">
-                  {product.images.map((image, index) => (
-                    <motion.button
-                      key={index}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => setSelectedImage(index)}
-                      className={`flex-1 h-24 rounded-xl overflow-hidden border-2 transition-all ${
-                        selectedImage === index ? 'border-blue-500 shadow-lg' : 'border-gray-200'
-                      }`}
-                    >
-                      <img
-                        src={image}
-                        alt={`${product.name} view ${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </motion.button>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Product Info */}
-              <motion.div variants={itemVariants} className="space-y-6">
-                <div>
-                  <motion.span
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.3 }}
-                    className="inline-block px-4 py-2 bg-blue-100 text-blue-800 text-sm font-semibold rounded-full mb-4"
-                  >
-                    Material Handling Solutions
-                  </motion.span>
-                  <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                    {product.name}
-                  </h1>
-                  <p className="text-xl text-gray-700 leading-relaxed">
-                    {product.description}
-                  </p>
-                </div>
-
-                {/* Category Tabs */}
-                <div className="bg-white rounded-xl p-2 shadow-sm border border-gray-200">
-                  <div className="flex space-x-2">
-                    {Object.entries(productCategories).map(([key, category]) => (
-                      <button
-                        key={key}
-                        onClick={() => setActiveTab(key)}
-                        className={`flex-1 py-3 px-4 rounded-lg text-center transition-all ${
-                          activeTab === key
-                            ? 'bg-blue-600 text-white shadow-lg'
-                            : 'text-gray-600 hover:bg-gray-100'
-                        }`}
-                      >
-                        <span className="font-semibold">{category.name}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Features based on active tab */}
-                <div className="grid grid-cols-2 gap-4">
-                  {productCategories[activeTab].features.map((feature, index) => (
-                    <motion.div
-                      key={index}
-                      whileHover={{ scale: 1.02, y: -2 }}
-                      className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100"
-                    >
-                      <div className="p-2 bg-blue-100 rounded-lg">
-                        <feature.icon className="h-5 w-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 text-sm">{feature.title}</h3>
-                        <p className="text-xs text-gray-600">{feature.desc}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setShowInquiryModal(true)}
-                    className="flex-1 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    <MessageCircle className="h-5 w-5" />
-                    Request Quote
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-200 hover:border-blue-300 transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    <Download className="h-5 w-5" />
-                    Technical Specs
-                  </motion.button>
-                </div>
-
-                {/* Quick Stats */}
-                <div className="grid grid-cols-3 gap-4 pt-6">
-                  {[
-                    { icon: Clock, value: "72h", label: "Sample Delivery" },
-                    { icon: Shield, value: "ISO", label: "Certified" },
-                    { icon: Package, value: "500+", label: "Variants" }
-                  ].map((stat, index) => (
-                    <motion.div
-                      key={index}
-                      whileHover={{ scale: 1.05 }}
-                      className="text-center p-3 bg-white rounded-xl shadow-sm"
-                    >
-                      <stat.icon className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-                      <div className="font-bold text-gray-900">{stat.value}</div>
-                      <div className="text-xs text-gray-600">{stat.label}</div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </motion.div>
+        <section className="relative py-8 md:py-12 px-4 sm:px-6 lg:px-8">
+  <div className="max-w-7xl mx-auto">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
+    >
+      {/* Image Gallery */}
+      <motion.div variants={itemVariants} className="space-y-3 md:space-y-4">
+        <motion.div
+          variants={imageVariants}
+          className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl md:shadow-2xl bg-white p-3 md:p-4"
+        >
+          <img
+            src={product.images[selectedImage]}
+            alt={product.name}
+            className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-xl md:rounded-2xl"
+          />
+          <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-black/70 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm backdrop-blur-sm">
+            {selectedImage + 1}/{product.images.length}
           </div>
-        </section>
+        </motion.div>
+        
+        <div className="flex gap-2 md:gap-4">
+          {product.images.map((image, index) => (
+            <motion.button
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setSelectedImage(index)}
+              className={`flex-1 h-16 md:h-20 lg:h-24 rounded-lg md:rounded-xl overflow-hidden border-2 transition-all ${
+                selectedImage === index ? 'border-blue-500 shadow-lg' : 'border-gray-200'
+              }`}
+            >
+              <img
+                src={image}
+                alt={`${product.name} view ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </motion.button>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Product Info */}
+      <motion.div variants={itemVariants} className="space-y-4 md:space-y-6">
+        <div>
+          <motion.span
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.3 }}
+            className="inline-block px-3 py-1 md:px-4 md:py-2 bg-blue-100 text-blue-800 text-xs md:text-sm font-semibold rounded-full mb-3 md:mb-4"
+          >
+            Material Handling Solutions
+          </motion.span>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
+            {product.name}
+          </h1>
+          <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed">
+            {product.description}
+          </p>
+        </div>
+
+        {/* Category Tabs */}
+        <div className="bg-white rounded-lg md:rounded-xl p-2 shadow-sm border border-gray-200">
+          <div className="flex space-x-2">
+            {Object.entries(productCategories).map(([key, category]) => (
+              <button
+                key={key}
+                onClick={() => setActiveTab(key)}
+                className={`flex-1 py-2 md:py-3 px-3 md:px-4 rounded-lg text-center transition-all text-xs md:text-sm ${
+                  activeTab === key
+                    ? 'bg-blue-600 text-white shadow-lg'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                <span className="font-semibold">{category.name}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Features based on active tab */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+          {productCategories[activeTab].features.map((feature, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.02, y: -2 }}
+              className="flex items-center gap-2 md:gap-3 p-2 md:p-3 bg-white rounded-lg md:rounded-xl shadow-sm border border-gray-100"
+            >
+              <div className="p-1 md:p-2 bg-blue-100 rounded-md md:rounded-lg">
+                <feature.icon className="h-4 w-4 md:h-5 md:w-5 text-blue-600" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-gray-900 text-xs md:text-sm">{feature.title}</h3>
+                <p className="text-xs text-gray-600 leading-tight">{feature.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2 md:pt-4">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setShowInquiryModal(true)}
+            className="flex-1 px-4 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg md:rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base"
+          >
+            <MessageCircle className="h-4 w-4 md:h-5 md:w-5" />
+            Request Quote
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-4 py-3 md:px-8 md:py-4 bg-white text-gray-700 font-semibold rounded-lg md:rounded-xl border-2 border-gray-200 hover:border-blue-300 transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base"
+          >
+            <Download className="h-4 w-4 md:h-5 md:w-5" />
+            Technical Specs
+          </motion.button>
+        </div>
+
+        {/* Quick Stats */}
+        <div className="grid grid-cols-3 gap-3 md:gap-4 pt-4 md:pt-6">
+          {[
+            { icon: Clock, value: "72h", label: "Sample Delivery" },
+            { icon: Shield, value: "ISO", label: "Certified" },
+            { icon: Package, value: "500+", label: "Variants" }
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              className="text-center p-2 md:p-3 bg-white rounded-lg md:rounded-xl shadow-sm"
+            >
+              <stat.icon className="h-4 w-4 md:h-5 md:w-5 lg:h-6 lg:w-6 text-blue-600 mx-auto mb-1 md:mb-2" />
+              <div className="font-bold text-gray-900 text-sm md:text-base">{stat.value}</div>
+              <div className="text-xs text-gray-600">{stat.label}</div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
 
         {/* Detailed Information Sections */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
