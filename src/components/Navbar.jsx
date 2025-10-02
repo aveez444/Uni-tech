@@ -13,7 +13,7 @@ import {
   Globe
 } from 'lucide-react';
 
-import logo from '../assets/logo.jpg';
+import logo from '../assets/logo7.jpg';
 
 // Import product images (adjust paths as needed)
 import oRingImg from '../assets/o-rings.jpg';
@@ -212,7 +212,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Unitech Auto International"
-              className="h-8 w-auto rounded-lg lg:h-10"
+              className="h-16 w-auto rounded-lg lg:h-40"
             />
           </motion.div>
 
