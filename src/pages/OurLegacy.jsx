@@ -50,7 +50,7 @@ const OurLegacy = () => {
         'Developed advanced material formulations'
       ],
       milestone: '2012: Awarded "Excellence in Manufacturing"',
-      description: 'This decade of strategic expansion saw Uni-Tech Auto International transform from a regional supplier to a global partner. We invested heavily in advanced manufacturing capabilities while maintaining our commitment to exceptional quality that clients had come to depend on.'
+      description: 'This decade of strategic expansion saw Uni-Tech International transform from a regional supplier to a global partner. We invested heavily in advanced manufacturing capabilities while maintaining our commitment to exceptional quality that clients had come to depend on.'
     },
     {
       id: 'innovation',
@@ -108,8 +108,8 @@ const OurLegacy = () => {
   // Realistic Statistics
   const realisticStats = [
     { icon: Users, value: "100+", label: "Satisfied Clients", sublabel: "Engineers, Technicians & Specialists" },
-    { icon: Building, value: "45,000", label: "Square Feet", sublabel: "Advanced Manufacturing Space" },
-    { icon: Globe, value: "20+", label: "Countries", sublabel: "Global Client Partnerships" },
+    { icon: Building, value: "3000+", label: "Square Feet", sublabel: "Advanced Manufacturing Space" },
+    { icon: Globe, value: "10+", label: "Countries", sublabel: "Global Client Partnerships" },
     { icon: Award, value: "98.9%", label: "Quality Rate", sublabel: "Defect-Free Deliveries" }
   ];
 
@@ -156,7 +156,7 @@ const OurLegacy = () => {
     {
       name: "Shafeen Siddiqui",
       role: "Co-Owner",
-      experience: "PhD in Mechanical Engineering",
+      experience: "B.E in Mechanical Engineering",
       quote: "Innovation happens when we challenge the impossible and make it routine."
     }
   ];
@@ -203,7 +203,7 @@ const OurLegacy = () => {
 
         <div className="space-y-4 md:space-y-6">
           <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
-            For over 30 years, Uni-Tech Auto International has been at the forefront of automotive 
+            For over 30 years, Uni-Tech International has been at the forefront of automotive 
             rubber technology, transforming industry standards through relentless innovation 
             and uncompromising quality. What began as a small workshop with big dreams has evolved 
             into a global enterprise recognized for precision engineering and sustainable practices.
@@ -782,7 +782,7 @@ const OurLegacy = () => {
               {[
                 { icon: Clock, label: "30+ Years", description: "Industry Experience" },
                 { icon: Shield, label: "ISO Certified", description: "Quality Standards" },
-                { icon: Globe, label: "Global Reach", description: "20+ Countries" }
+                { icon: Globe, label: "Global Reach", description: "10+ Countries" }
               ].map((item, index) => (
                 <motion.div
                   key={index}

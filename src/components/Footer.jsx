@@ -48,8 +48,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Since 1995, Unitech Auto Products has been at the forefront of rubber manufacturing 
-              excellence. We deliver precision-engineered automotive rubber products that meet 
+              Since 1995, Unitech International has been at the forefront of rubber manufacturing 
+              excellence. We deliver precision-engineered rubber products that meet 
               international quality standards and exceed customer expectations.
             </p>
             <div className="flex space-x-4">
@@ -73,7 +73,7 @@ const Footer = () => {
               Quick Links
             </h4>
             <ul className="space-y-3">
-              {['About Us', 'Our Products', 'Quality Assurance', 'Certifications', 'Gallery', 'Blogs'].map((item) => (
+              {['About Us', 'Our Products', 'Quality Assurance', 'Certifications', 'Blogs'].map((item) => (
                 <li key={item}>
                   <motion.a
                     whileHover={{ x: 5 }}
@@ -96,7 +96,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
-                <p className="text-gray-300">Industrial Estate, Yewalewadi Pune, 411048</p>
+                <p className="text-gray-300">Address: Sr. No. 32/3/4/1, near Advika society, Danny Mehta Nagar, Kondhwa Budruk, Pune 411048</p>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-400" />
@@ -106,8 +106,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-blue-400" />
-                <a href="export.unitechinternational@gmail.com" className="text-gray-300 hover:text-white transition-colors">
-                  info@unitechautoproducts.com
+                <a href="export@rubberoring.com" className="text-gray-300 hover:text-white transition-colors">
+                  info@unitechinternational.com
                 </a>
               </div>
             </div>

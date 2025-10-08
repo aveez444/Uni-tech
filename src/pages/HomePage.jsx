@@ -253,7 +253,7 @@ const HomePage = () => {
       borderColor: "border-blue-200",
       details: {
         title: "Reliable Supply Chain Excellence",
-        description: "We understand that time is critical in the automotive industry. Our streamlined processes ensure you receive components exactly when needed.",
+        description: "We understand that time is critical in the all industry. Our streamlined processes ensure you receive components exactly when needed.",
         points: [
           "Understanding value of time and striving for prompt deliveries",
           "Advanced production planning and scheduling",
@@ -309,7 +309,7 @@ const HomePage = () => {
         points: [
           "R&D center dedicated to rubber technology innovation",
           "Advanced CAD/CAM design capabilities",
-          "Industry 4.0 compliant manufacturing systems",
+          "Industry compliant manufacturing systems",
           "Sustainable and eco-friendly material development",
           "Patent-pending proprietary manufacturing techniques",
           "Continuous technology upgradation program"
@@ -331,7 +331,7 @@ const HomePage = () => {
       borderColor: "border-indigo-200",
       details: {
         title: "International Quality Compliance",
-        description: "Our products meet and exceed global automotive standards, making us the preferred choice for international manufacturers.",
+        description: "Our products meet and exceed global standards, making us the preferred choice for international manufacturers.",
         points: [
           "Compliance with international quality standards (ISO, ASTM)",
           "Global material certification and traceability",
@@ -348,9 +348,9 @@ const HomePage = () => {
       }
     }
   ];
-
-  // Products Data
+// Products Data
 const products = [
+  // 1. Rubber O-Rings
   {
     id: 1,
     name: "Rubber O-Rings",
@@ -384,39 +384,99 @@ const products = [
       ]
     }
   },
+
+  // 2. Rubber Gaskets
   {
-    id: 2,
-    name: "Oil Seals",
-    image: oilSealsImage,
-    shortDesc: "Advanced sealing technology for lubrication retention",
-    gradient: "from-blue-500 to-cyan-500",
-    icon: Shield,
-    features: ["Dust & Fluid Protection", "High-Speed Compatible", "Extended Lifespan"],
+    id: 6,
+    name: "Lathe Cut Rubber Washerexport.unitech",
+    image: rubberGasketsImage,
+    shortDesc: "Sealing solutions for leak-proof performance",
+    gradient: "from-pink-500 to-red-500",
+    icon: Droplet,
+    features: ["Leak Prevention", "Custom Sizes", "Wide Material Range"],
     details: {
-      title: "Premium Oil Seals & Radial Shaft Seals",
-      description: "Engineered to retain lubricants and exclude contaminants in rotating shaft applications. Our oil seals offer superior performance in demanding automotive and industrial environments.",
+      title: "Precision Rubber Gaskets",
+      description: "Manufactured with precision to provide leak-proof sealing in static applications. Suitable for automotive, plumbing, and industrial uses.",
       specifications: [
-        "Sizes from 5mm to 500mm shaft diameter",
-        "Various lip designs available",
-        "Temperature range: -40°C to 200°C",
-        "Speed capability up to 30 m/s",
-        "Multiple spring configurations"
+        "Cut and molded gaskets available",
+        "Thickness range: 0.5mm to 50mm",
+        "Compatible with fluids, gases, and chemicals"
       ],
       applications: [
-        "Automotive transmissions",
-        "Engine crankshafts",
-        "Industrial gearboxes",
-        "Electric motors",
-        "Agricultural equipment"
+        "Pipe flanges",
+        "Engine housings",
+        "Industrial sealing applications"
       ],
       benefits: [
-        "Excellent wear resistance",
-        "Contamination protection",
-        "Easy installation",
-        "Reduced maintenance costs"
+        "Excellent sealing reliability",
+        "Resistance to extreme conditions",
+        "Custom design options"
       ]
     }
   },
+
+  // 3. Rubber Molded Parts
+  {
+    id: 4,
+    name: "Rubber Molded Parts",
+    image: moldedPartsImage,
+    shortDesc: "Custom precision-molded rubber components",
+    gradient: "from-purple-500 to-pink-500",
+    icon: Package,
+    features: ["Tailored Designs", "Multiple Compounds", "Tight Tolerances"],
+    details: {
+      title: "Custom Rubber Molded Parts",
+      description: "We manufacture precision molded rubber components as per customer specifications. With advanced molding techniques, we deliver parts for critical applications in automotive and industrial sectors.",
+      specifications: [
+        "Compression, transfer, and injection molding",
+        "Wide range of elastomers: NBR, EPDM, Silicone, Viton",
+        "Tolerances as per ISO standards"
+      ],
+      applications: [
+        "Automotive interiors and exteriors",
+        "Industrial sealing components",
+        "Medical and electrical equipment"
+      ],
+      benefits: [
+        "Custom-designed for specific needs",
+        "High durability and resilience",
+        "Cost-effective manufacturing"
+      ]
+    }
+  },
+
+  // 4. Automotive Rubber Parts
+  {
+    id: 9,
+    name: "Automotive Rubber Parts",
+    image: automotivePartsImage,
+    shortDesc: "Durable rubber parts for automotive applications",
+    gradient: "from-gray-500 to-slate-500",
+    icon: Car,
+    features: ["OEM Standards", "High Strength", "Weather Resistant"],
+    details: {
+      title: "OEM Automotive Rubber Parts",
+      description: "Engineered rubber parts that meet OEM quality standards, designed to perform in critical automotive environments.",
+      specifications: [
+        "Manufactured with automotive-grade elastomers",
+        "High resistance to oil, heat, and weathering",
+        "Available for multiple vehicle models"
+      ],
+      applications: [
+        "Engine mounts",
+        "Seals and gaskets",
+        "Suspension bushings",
+        "Interior & exterior trims"
+      ],
+      benefits: [
+        "Improved vehicle performance",
+        "Reliable long-term use",
+        "Custom designs for specific models"
+      ]
+    }
+  },
+
+  // 5. Rubber Bellows
   {
     id: 3,
     name: "Rubber Bellows",
@@ -448,91 +508,43 @@ const products = [
       ]
     }
   },
+
+  // 6. Oil Seals
   {
-    id: 4,
-    name: "Rubber Molded Parts",
-    image: moldedPartsImage,
-    shortDesc: "Custom precision-molded rubber components",
-    gradient: "from-purple-500 to-pink-500",
-    icon: Package,
-    features: ["Tailored Designs", "Multiple Compounds", "Tight Tolerances"],
+    id: 2,
+    name: "Oil Seals",
+    image: oilSealsImage,
+    shortDesc: "Advanced sealing technology for lubrication retention",
+    gradient: "from-blue-500 to-cyan-500",
+    icon: Shield,
+    features: ["Dust & Fluid Protection", "High-Speed Compatible", "Extended Lifespan"],
     details: {
-      title: "Custom Rubber Molded Parts",
-      description: "We manufacture precision molded rubber components as per customer specifications. With advanced molding techniques, we deliver parts for critical applications in automotive and industrial sectors.",
+      title: "Premium Oil Seals & Radial Shaft Seals",
+      description: "Engineered to retain lubricants and exclude contaminants in rotating shaft applications. Our oil seals offer superior performance in demanding industrial environments.",
       specifications: [
-        "Compression, transfer, and injection molding",
-        "Wide range of elastomers: NBR, EPDM, Silicone, Viton",
-        "Tolerances as per ISO standards"
+        "Sizes from 5mm to 500mm shaft diameter",
+        "Various lip designs available",
+        "Temperature range: -40°C to 200°C",
+        "Speed capability up to 30 m/s",
+        "Multiple spring configurations"
       ],
       applications: [
-        "Automotive interiors and exteriors",
-        "Industrial sealing components",
-        "Medical and electrical equipment"
+        "Automotive transmissions",
+        "Engine crankshafts",
+        "Industrial gearboxes",
+        "Electric motors",
+        "Agricultural equipment"
       ],
       benefits: [
-        "Custom-designed for specific needs",
-        "High durability and resilience",
-        "Cost-effective manufacturing"
+        "Excellent wear resistance",
+        "Contamination protection",
+        "Easy installation",
+        "Reduced maintenance costs"
       ]
     }
   },
-  {
-    id: 5,
-    name: "Rubber to Metal Bonded Parts",
-    image: metalBondedImage,
-    shortDesc: "Strong bonding technology for vibration control",
-    gradient: "from-yellow-500 to-orange-500",
-    icon: Anchor,
-    features: ["Vibration Damping", "High Strength Bond", "Corrosion Resistant"],
-    details: {
-      title: "Rubber to Metal Bonded Parts",
-      description: "Specialized in bonding rubber with metal substrates for anti-vibration and sealing applications. These parts combine the flexibility of rubber with the strength of metal.",
-      specifications: [
-        "Custom bonding techniques",
-        "High load-bearing capacity",
-        "Corrosion-protected metal surfaces"
-      ],
-      applications: [
-        "Engine mountings",
-        "Shock absorbers",
-        "Vibration dampers",
-        "Industrial machinery supports"
-      ],
-      benefits: [
-        "Enhanced vibration absorption",
-        "Increased machinery lifespan",
-        "Reliable bonding strength"
-      ]
-    }
-  },
-  {
-    id: 6,
-    name: "Rubber Gaskets",
-    image: rubberGasketsImage,
-    shortDesc: "Sealing solutions for leak-proof performance",
-    gradient: "from-pink-500 to-red-500",
-    icon: Droplet,
-    features: ["Leak Prevention", "Custom Sizes", "Wide Material Range"],
-    details: {
-      title: "Precision Rubber Gaskets",
-      description: "Manufactured with precision to provide leak-proof sealing in static applications. Suitable for automotive, plumbing, and industrial uses.",
-      specifications: [
-        "Cut and molded gaskets available",
-        "Thickness range: 0.5mm to 50mm",
-        "Compatible with fluids, gases, and chemicals"
-      ],
-      applications: [
-        "Pipe flanges",
-        "Engine housings",
-        "Industrial sealing applications"
-      ],
-      benefits: [
-        "Excellent sealing reliability",
-        "Resistance to extreme conditions",
-        "Custom design options"
-      ]
-    }
-  },
+
+  // 7. Rubber Profiles
   {
     id: 7,
     name: "Rubber Profiles",
@@ -562,6 +574,39 @@ const products = [
       ]
     }
   },
+
+  // 8. Silicone Rubber Molded Parts
+  {
+    id: 10,
+    name: "Silicone Rubber Molded Parts",
+    image: siliconeRubberImage,
+    shortDesc: "High-performance silicone components",
+    gradient: "from-orange-500 to-pink-500",
+    icon: Flame,
+    features: ["Heat Resistant", "Biocompatible", "Flexible"],
+    details: {
+      title: "Premium Silicone Rubber Molded Parts",
+      description: "Manufactured using high-grade silicone, these parts offer excellent thermal stability, flexibility, and resistance to chemicals and weathering.",
+      specifications: [
+        "Temperature range: -70°C to 300°C",
+        "Excellent electrical insulation",
+        "Custom molding options"
+      ],
+      applications: [
+        "Medical devices",
+        "Food processing equipment",
+        "Automotive applications",
+        "Electrical insulation components"
+      ],
+      benefits: [
+        "Superior heat resistance",
+        "Non-toxic and food grade options",
+        "Long-lasting flexibility"
+      ]
+    }
+  },
+
+  // 9. Rubber Rollers
   {
     id: 8,
     name: "Rubber Rollers",
@@ -590,61 +635,34 @@ const products = [
       ]
     }
   },
+
+  // 10. Rubber to Metal Bonded Parts (rest)
   {
-    id: 9,
-    name: "Automotive Rubber Parts",
-    image: automotivePartsImage,
-    shortDesc: "Durable rubber parts for automotive applications",
-    gradient: "from-gray-500 to-slate-500",
-    icon: Car,
-    features: ["OEM Standards", "High Strength", "Weather Resistant"],
+    id: 5,
+    name: "Rubber to Metal Bonded Parts",
+    image: metalBondedImage,
+    shortDesc: "Strong bonding technology for vibration control",
+    gradient: "from-yellow-500 to-orange-500",
+    icon: Anchor,
+    features: ["Vibration Damping", "High Strength Bond", "Corrosion Resistant"],
     details: {
-      title: "OEM Automotive Rubber Parts",
-      description: "Engineered rubber parts that meet OEM quality standards, designed to perform in critical automotive environments.",
+      title: "Rubber to Metal Bonded Parts",
+      description: "Specialized in bonding rubber with metal substrates for anti-vibration and sealing applications. These parts combine the flexibility of rubber with the strength of metal.",
       specifications: [
-        "Manufactured with automotive-grade elastomers",
-        "High resistance to oil, heat, and weathering",
-        "Available for multiple vehicle models"
+        "Custom bonding techniques",
+        "High load-bearing capacity",
+        "Corrosion-protected metal surfaces"
       ],
       applications: [
-        "Engine mounts",
-        "Seals and gaskets",
-        "Suspension bushings",
-        "Interior & exterior trims"
+        "Engine mountings",
+        "Shock absorbers",
+        "Vibration dampers",
+        "Industrial machinery supports"
       ],
       benefits: [
-        "Improved vehicle performance",
-        "Reliable long-term use",
-        "Custom designs for specific models"
-      ]
-    }
-  },
-  {
-    id: 10,
-    name: "Silicone Rubber Molded Parts",
-    image: siliconeRubberImage,
-    shortDesc: "High-performance silicone components",
-    gradient: "from-orange-500 to-pink-500",
-    icon: Flame,
-    features: ["Heat Resistant", "Biocompatible", "Flexible"],
-    details: {
-      title: "Premium Silicone Rubber Molded Parts",
-      description: "Manufactured using high-grade silicone, these parts offer excellent thermal stability, flexibility, and resistance to chemicals and weathering.",
-      specifications: [
-        "Temperature range: -70°C to 300°C",
-        "Excellent electrical insulation",
-        "Custom molding options"
-      ],
-      applications: [
-        "Medical devices",
-        "Food processing equipment",
-        "Automotive applications",
-        "Electrical insulation components"
-      ],
-      benefits: [
-        "Superior heat resistance",
-        "Non-toxic and food grade options",
-        "Long-lasting flexibility"
+        "Enhanced vibration absorption",
+        "Increased machinery lifespan",
+        "Reliable bonding strength"
       ]
     }
   }
@@ -758,7 +776,7 @@ const products = [
       gradient: "from-lime-500 to-green-500",
       bgGradient: "from-lime-50 to-green-50",
       description: "Classic rubber with excellent mechanical properties and resilience.",
-      properties: ["High Elasticity", "Tear Resistant", "Impact Resistant", "Temperature: -50°C to 70°C"],
+      properties: ["High Elasticity", "Tear Resistant", "Impact Resistant", "Temperature: -20°C to 70°C"],
       applications: ["Tires", "Shock Absorbers", "Elastic Bands", "Medical Devices", "General Products"],
 
     }
@@ -808,7 +826,7 @@ const products = [
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Discover the unique advantages that make Uni-Tech Auto International your trusted partner 
+            Discover the unique advantages that make Uni-Tech International your trusted partner 
             for precision rubber components. Experience innovation, quality, and reliability like never before.
           </p>
         </motion.div>
@@ -1295,13 +1313,13 @@ const ContactSection = () => {
               {
                 icon: Mail,
                 title: "Email Us",
-                info: "export.unitechinternational@gmail.com",
+                info: "expor@rubberoring.com",
                 desc: "Send us your query anytime"
               },
               {
                 icon: MapPin,
                 title: "Visit Us",
-                info: "Industrial Estate, Yewalewadi ",
+                info: "Address: Sr. No. 32/3/4/1, near Advika society, Danny Mehta Nagar, Kondhwa ",
                 desc: "Pune, Maharashtra, India"
               },
               {
@@ -1538,7 +1556,7 @@ const ContactSection = () => {
       variants={itemVariants}
       className="text-xl md:text-2xl text-white max-w-4xl mx-auto mb-8 leading-relaxed font-medium drop-shadow-lg"
     >
-      Precision-engineered rubber solutions driving automotive excellence since 1995. 
+      Precision-engineered rubber solutions driving all industry excellence since 1995. 
       Where innovation meets reliability in every component we create.
     </motion.p>
 
@@ -1653,8 +1671,8 @@ const ContactSection = () => {
                 variants={aboutItemVariants}
                 className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium"
               >
-                Since 1995, <span className="font-bold text-blue-600">Uni-Tech Auto International</span> has been at the 
-                forefront of precision rubber manufacturing, serving the global automotive industry with 
+                Since 1995, <span className="font-bold text-blue-600">Uni-Tech International</span> has been at the 
+                forefront of precision rubber manufacturing, serving the global industry with 
                 unwavering commitment to quality and innovation.
               </motion.p>
 
@@ -1664,7 +1682,7 @@ const ContactSection = () => {
               >
                 Our journey began with a simple vision: to create rubber components that set new standards 
                 in durability, precision, and performance. Today, we're proud to be a trusted partner for 
-                automotive manufacturers worldwide, delivering solutions that drive excellence.
+                all industry manufacturers worldwide, delivering solutions that drive excellence.
               </motion.p>
 
               {/* Stats Grid */}
@@ -1674,7 +1692,7 @@ const ContactSection = () => {
               >
                 {[
                   { icon: Clock, number: "30+", label: "Years Experience" },
-                  { icon: Users, number: "500+", label: "Clients Worldwide" },
+                  { icon: Users, number: "100+", label: "Clients Worldwide" },
                   { icon: Award, number: "50M+", label: "Components Delivered" },
                   { icon: Target, number: "100%", label: "Quality Focus" }
                 ].map((stat, index) => (
@@ -1731,7 +1749,7 @@ const ContactSection = () => {
               >
           <img
   src={aboutImage}
-  alt="Uni-Tech Auto International Manufacturing Facility"
+  alt="Uni-Tech International Manufacturing Facility"
   className="w-full h-64 object-cover rounded-2xl sm:h-[400px] lg:h-[600px]"
 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -1911,7 +1929,7 @@ const ContactSection = () => {
         </h2>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
           Discover our comprehensive range of high-performance elastomers, each engineered to deliver 
-          exceptional properties for specific industrial and automotive applications.
+          exceptional properties for specific industrial and applications.
         </p>
       </motion.div>
 

@@ -228,7 +228,7 @@ Looking ahead, we're focused on:
       publishDate: '2024-11-20',
       author: {
         name: 'Leadership Team',
-        role: 'Uni-Tech Auto International',
+        role: 'Uni-Tech International',
      
       },
       tags: ['Legacy', 'Innovation', 'Future Tech', 'Company'],
@@ -649,7 +649,7 @@ const BlogFooter = () => {
                     <Zap className="h-6 w-6 text-white" />
                   </div>
                   <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                    Uni-Tech Auto International
+                    Uni-Tech International
                   </span>
                 </div>
                 
@@ -793,7 +793,7 @@ const BlogFooter = () => {
                   viewport={{ once: true }}
                   className="text-gray-500 text-sm"
                 >
-                  © 2024 Uni-Tech Auto International. All rights reserved. 
+                  © 2024 Uni-Tech International. All rights reserved. 
                   <span className="text-cyan-400 ml-2">Pioneering Innovation Since 1995</span>
                 </motion.div>
   

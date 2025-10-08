@@ -56,7 +56,7 @@ const ContactUs = () => {
     {
       icon: MapPin,
       title: "Visit Our Office",
-      details: "36/2, Dhandekar Industrial Estate, Kondhwa, Yewalewadi, Pune, Maharashtra - 411048, India",
+      details: "Address: Sr. No. 32/3/4/1, near Advika society, Danny Mehta Nagar, Kondhwa Budruk, Pune 411048",
       color: "from-red-500 to-pink-500"
     },
     {
@@ -68,7 +68,7 @@ const ContactUs = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "export@oringandseal.com",
+      details: "unitechinternational9@gmail.com\nexport@rubberoring.com",
       color: "from-blue-500 to-cyan-500"
     },
     {
@@ -93,7 +93,7 @@ const ContactUs = () => {
     {
       icon: Globe,
       title: "Global Reach",
-      description: "Serving clients across 20+ countries worldwide"
+      description: "Serving clients across 10+ countries worldwide"
     },
     {
       icon: Heart,
@@ -420,7 +420,7 @@ const ContactUs = () => {
                     <div className="flex items-center gap-3">
                         <MapPin className="h-5 w-5 text-blue-600" />
                         <span className="text-gray-600">
-                        36/2, Dhandekar Industrial Estate, Kondhwa, Yewalewadi, Pune, Maharashtra - 411048
+                        Address: Sr. No. 32/3/4/1, near Advika society, Danny Mehta Nagar, Kondhwa Budruk, Pune 411048
                         </span>
                     </div>
                     <div className="flex items-center gap-3">
@@ -483,9 +483,9 @@ const ContactUs = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-700 mb-2">Email Us</h4>
-                      <a href="mailto:export@oringandseal.com" className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+                      <a href="mailto:export@rubberoring.com" className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
                         <Mail className="h-4 w-4" />
-                        export@oringandseal.com
+                        export@rubberoring.com
                       </a>
                     </div>
                   </div>
